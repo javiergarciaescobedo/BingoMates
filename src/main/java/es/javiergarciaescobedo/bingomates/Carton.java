@@ -5,18 +5,36 @@ import java.util.Random;
 public class Carton {
     
     int[][] nums;
-            
+                
     public void generar() {
         nums = new int[9][3];
         
-        for(int y=0; y<3; y++) {
-            for(int x=0; x<9; x++) {
-                nums[x][y] = getNumAleatorio(1, 90);
+//        for(int y=0; y<3; y++) {
+//            for(int x=0; x<9; x++) {
+//                nums[x][y] = getNumAleatorio(1, 90);
+//            }
+//        }
+
+        int num;
+        int col;
+        for(int fil=0; fil<3; fil++) {
+            for(int i=0; i<5; i++) {  
+                do {
+                    num = getNumAleatorio(1, 89);
+                    //System.out.println("numAleatorio: "+ num);
+                    col = this.getNumColumna(num);
+                } while(nums[col][fil] != 0);
+                nums[col][fil] = num;
             }
         }
         
         this.mostrarPorConsola();
     }
+    
+    // Retorna el número de la columna
+    private int getNumColumna(int num) {
+        return (num / 10);
+    } 
     
     public void mostrarPorConsola() {
         for(int y=0; y<3; y++) {
