@@ -18,10 +18,7 @@ public class App extends Application {
         stage.setScene(scene);
         stage.show();
         
-        Carton carton = new Carton();
-        carton.generar();
-        
-
+        Carton carton = new Carton(5);
         
     }
 
