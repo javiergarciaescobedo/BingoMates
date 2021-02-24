@@ -24,8 +24,6 @@ public class App extends Application {
         
         CartonView cartonView = new CartonView(carton);
         paneRoot.setCenter(cartonView);
-        
-
     }
     
     public void mostrarNum(int num) {
