@@ -42,12 +42,12 @@ public class CartonView extends GridPane {
     
     private void mouseController() {
         this.setOnMouseClicked((MouseEvent mouseEvent) -> {
-            System.out.println("X: " + mouseEvent.getX() + ", Y: "+ mouseEvent.getY() );
+            System.out.println("\nDetectado clic en X: " + mouseEvent.getX() + ", Y: "+ mouseEvent.getY() );
             int colClic = (int)(mouseEvent.getX() / TAM_X);
             int filClic = (int)(mouseEvent.getY() / TAM_Y);
-            System.out.println("Col: " + colClic + ", Fil: " + filClic);
+            System.out.print("Col: " + colClic + ", Fil: " + filClic);
             int num = carton.getNumPos(colClic, filClic);
-            System.out.println("Número: " + num);
+            System.out.println(" >>> Número: " + num);
         });
     }
 }

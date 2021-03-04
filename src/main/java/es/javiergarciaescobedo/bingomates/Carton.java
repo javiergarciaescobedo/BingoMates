@@ -14,18 +14,17 @@ public class Carton {
         int num;
         int col;
         for(int fil=0; fil<numFilas; fil++) {
-            for(int i=0; i<5; i++) {  
+            for(int i=0; i<5; i++) { // Cantidad de números a colocar en la línea
                 do {
                     num = getNumAleatorio(1, 89);
                     col = this.getNumColumna(num);
                 // Controlar que no se coloque en una posición ocupada para
-                //   asegurar que se cumpla la cantidad de números en la fila                //      y que no se repita el número
-                } while(nums[col][fil] != 0);
+                //   asegurar que se cumpla la cantidad de números en la fila
+                //   y que no se repita el número
+                } while(nums[col][fil] != 0 || existeNumero(num));
                 nums[col][fil] = num;
             }
         }
-        
-        this.mostrarPorConsola();        
     }
     
     // Retorna el número de la columna
@@ -36,14 +35,13 @@ public class Carton {
     public void mostrarPorConsola() {
         for(int y=0; y<numFilas; y++) {
             for(int x=0; x<9; x++) {
-                //System.out.println("x=" + x + " y=" + y);
                 System.out.print(nums[x][y] + " ");
             }
             System.out.println();
         }        
     }
     
-    public int getNumAleatorio(int min, int max) {
+    private int getNumAleatorio(int min, int max) {
         Random random = new Random();
         int num = random.nextInt(max-min+1) + min;
         return num;
@@ -56,6 +54,21 @@ public class Carton {
             System.out.println(ex.getMessage());
             return -1;
         }
+    }
+    
+    /**
+     * Comprueba si un determinado número se encuentra en el cartón
+     * @param num Número sobre el que se desea comprobar si existe en el cartón
+     * @return true si existe el número en el cartón y false en caso contrario
+     */
+    public boolean existeNumero(int num) {
+        int columna = this.getNumColumna(num);
+        for(int y=0; y<this.numFilas; y++) {
+            if(this.nums[columna][y] == num) {
+                return true;
+            }
+        }
+        return false;
     }
     
 }

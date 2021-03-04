@@ -2,11 +2,8 @@ package es.javiergarciaescobedo.bingomates;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
-
 
 /**
  * JavaFX App
@@ -21,6 +18,7 @@ public class App extends Application {
         stage.show();
         
         Carton carton = new Carton(5);
+        carton.mostrarPorConsola();
         
         CartonView cartonView = new CartonView(carton);
         paneRoot.setCenter(cartonView);
