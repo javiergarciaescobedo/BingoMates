@@ -5,7 +5,7 @@ import java.util.Random;
 public class Carton {
     
     int[][] nums;
-    int numFilas;            
+    int numFilas;   
     
     public Carton(int numFilas) {
         this.numFilas = numFilas;

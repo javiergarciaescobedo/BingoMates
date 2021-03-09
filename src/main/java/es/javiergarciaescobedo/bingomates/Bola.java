@@ -22,7 +22,6 @@ public class Bola extends StackPane {
     
     public void setNumero(int num) {
         labelBola.setText(String.valueOf(num));
-    }
-    
+    }    
     
 }
